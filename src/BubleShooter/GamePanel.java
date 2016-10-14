@@ -66,12 +66,7 @@ public class GamePanel extends JPanel implements Runnable{
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}			
-		}
-		
-		//Wave update
-		wave.update();
-		
-		
+		}		
 	}
 	
 	public void gameUpdate(){
@@ -145,7 +140,11 @@ public class GamePanel extends JPanel implements Runnable{
 					i--;
 				}
 			}
-		}		
+		}
+		
+		//Wave update
+		wave.update();
+						
 	}
 	
 	public void gameRender(){
@@ -166,8 +165,9 @@ public class GamePanel extends JPanel implements Runnable{
 		}
 		
 		//Wave draw
-		wave.draw(g);
-		
+		if (wave.showWave()){
+			wave.draw(g);
+		}		
 	}	
 	
 	private void gameDraw(){
